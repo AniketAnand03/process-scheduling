@@ -1,1 +1,21 @@
-
+#include<stdio.h>
+void Rr(int no,int remt[10],int cur_t,int art[10],int bst[10]);
+main()
+{
+	int process_no,j,no,curt,Rempro,indicator,time_quantum,wait,tut,art[10],bst[10],remt[10],x=1;
+	indicator=0;
+	wait=0;
+	tut=0;
+	printf("Enter the number of processes");
+	scanf("%d",&no);
+	Rempro=no;
+	printf("\nEnter the arrival time and burst time of process\n");
+	for(process_no=0;process_no<no;process_no++)
+	{
+		printf("\nProcess P%d\n",Process_no+1);
+		printf("Arrival Time=");
+		scanf("%d",&art[process_no]);
+		printf("Burst Time=");
+		scanf("%d",&bst[process_no]);
+		remt[process_no]=bst[process_no];
+	}
