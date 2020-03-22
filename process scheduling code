@@ -47,3 +47,51 @@ main()
 			tut+=CurT-arT[Proc_no]; 
 			indicator=0;               
 		} 
+		if(Proc_no==no-1){
+			x++;
+			if(x==2){
+				Proc_no=0;
+				time_quan=6;
+				
+				printf("The time quantum for second round is 6. \n");
+			}
+			else{
+				break;
+			}
+		}
+		else if(CurT >= arT[Proc_no+1]){
+			Proc_no++;
+		}
+		else{
+			Proc_no=0;
+		}
+	}
+	rr(no,remt,CurT,arT,bsT);
+	return 0;
+}
+void rr(int no,int remt[10],int Cur_t,int arT[10], int bsT[10]){	
+	float avg_wait,avg_tut;
+    int i,j,n=no,temp,btime[20],Proc_no[20],w_time[20],tut_t[20],total=0,loc;
+    printf("Third round with least burst time.\n");
+    for(i=0;i<n;i++)
+    {
+        btime[i]=remt[i];
+        w_time[i]=Cur_t-arT[i]-btime[i];
+		Proc_no[i]=i+1;
+    }
+    for(i=0;i<n;i++)
+    {
+        loc=i;
+        for(j=i+1;j<n;j++)
+        {
+            if(btime[j]<btime[loc]){
+            	loc=j;
+            }
+        }
+        temp=btime[i];
+        btime[i]=btime[loc];
+        btime[loc]=temp;
+        temp=Proc_no[i];
+        Proc_no[i]=Proc_no[loc];
+        Proc_no[loc]=temp;
+    }
